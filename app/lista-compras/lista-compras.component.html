@@ -1,0 +1,28 @@
+<h2 style="text-align: center"> Projeto Carros</h2>
+<div class="row">
+  <div class=" col-md-1"></div>
+  <div class=" col-md-5">
+    <form>
+        <label>Lista de compras:</label>
+        <input class="form-control" #inputNome type="text" [(ngModel)]="nome" />
+        <br/>
+
+
+        <label>Produto:</label>
+        <input class="form-control" #inputProduto type="text" value="{{produto}}"/>
+        <br/>
+
+        <button  class="btn btn-primary" (click)="AdicionarProduto(inputProduto.value)">Adicionar</button>
+
+    </form>
+  </div>
+
+  <div class="col-md-5">
+    <ul [style.list-style-type] = "'none'">
+      <h2>{{inputNome.value}}</h2>
+        <li *ngFor="let produto of lista.produto,let i = index">
+          {{produto}} <button class="btn btn-danger" (click)="ExcluirProduto(i)">Excluir</button> <button class="btn btn-danger" (click)="EditarProduto(i,produto)">Editar</button>
+        </li>
+      </ul>
+  </div>
+</div>
